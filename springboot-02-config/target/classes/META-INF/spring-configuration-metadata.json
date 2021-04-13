@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "person",
+      "type": "com.guighost.entity.Person",
+      "sourceType": "com.guighost.entity.Person"
+    }
+  ],
+  "properties": [
+    {
+      "name": "person.age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.guighost.entity.Person"
+    },
+    {
+      "name": "person.birth",
+      "type": "java.util.Date",
+      "sourceType": "com.guighost.entity.Person"
+    },
+    {
+      "name": "person.dog",
+      "type": "com.guighost.entity.Dog",
+      "sourceType": "com.guighost.entity.Person"
+    },
+    {
+      "name": "person.happy",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.guighost.entity.Person"
+    },
+    {
+      "name": "person.list",
+      "type": "java.util.List<java.lang.Object>",
+      "sourceType": "com.guighost.entity.Person"
+    },
+    {
+      "name": "person.map",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.guighost.entity.Person"
+    },
+    {
+      "name": "person.name",
+      "type": "java.lang.String",
+      "sourceType": "com.guighost.entity.Person"
+    }
+  ],
+  "hints": []
+}

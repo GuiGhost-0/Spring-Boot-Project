@@ -1,0 +1,36 @@
+# 对空格的要求十分高
+# 可以注入到我们的配置类中
+server:
+  port: 8058  #项目端口号
+  servlet:
+    context-path: /GuiGhost #项目访问路径
+debug: true
+
+
+person:
+  name: guigui${random.int}@163.com
+  age: ${random.int}
+  happy: false
+  birth: 2021/3/18
+#  hello: KiKi
+  map: {k1: v1,k2: v2}
+  list: [l1,l2,l3]
+  dog:
+    name: ${person.hello:旺财} # 有hello属性就用hello属性的值，没有就是: 后面的默认值
+    age: 3
+
+# 用---三个  - 分隔多个环境
+---
+server:
+  port: 8081
+spring:
+  profiles: dev
+---
+server:
+  port: 8082
+# spring:
+#   profiles: 定义的是该环境的名字
+spring:
+  profiles: test
+
+

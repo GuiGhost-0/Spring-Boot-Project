@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="~{commons/commons::head}"></div>
+    <h1>Spring Security</h1>
+
+    <div style="position: relative">
+        <!--菜单根据用户角色动态的实现-->
+        <div style="width: 250px;height: 100px;position: absolute;left: 200px" sec:authorize="hasRole('vip1')">
+            <table>
+                <tr>
+                    <th>level1</th>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level1/1}">level1-1</a></td>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level1/2}">level1-2</a></td>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level1/3}">level1-3</a></td>
+                </tr>
+            </table>
+        </div>
+        <div style="width: 250px;height: 100px;position: absolute;left: 600px" sec:authorize="hasRole('vip2')">
+            <table>
+                <tr>
+                    <th>level2</th>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level2/1}">level2-1</a></td>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level2/2}">level2-2</a></td>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level2/3}">level2-3</a></td>
+                </tr>
+            </table>
+        </div>
+        <div style="width: 250px;height: 100px;position: absolute;right: 50px" sec:authorize="hasRole('vip3')">
+            <table>
+                <tr>
+                    <th>level3</th>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level3/1}">level3-1</a></td>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level3/2}">level3-2</a></td>
+                </tr>
+                <tr>
+                    <td><a th:href="@{/level3/3}">level3-3</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+server:
+  port: 8068
+  servlet:
+    context-path: /Boot03-WEB
+
+# 关闭模板引擎的缓存
+spring:
+  thymeleaf:
+    cache: false
+# 我们的配置文件的真实位置4
+  messages:
+    basename: i18n/login
+  mvc:
+    date-format: yyyy-MM-dd
+    hiddenmethod:
+      filter:
+        enabled: true #开启页面表单的Rest功能
+
+

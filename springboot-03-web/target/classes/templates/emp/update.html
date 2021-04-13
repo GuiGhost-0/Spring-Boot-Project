@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/dist/css/dashboard.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{commons/commons::header}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/commons::sidebar(active='list.html')}"></div>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">修改信息</h1>
+            </div>
+
+            <form class="form-horizontal" th:action="@{/emp}" method="post">
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="id" th:value="${emp.getId()}">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+                    <div class="col-sm-10">
+                        <input th:value="${emp.getEmpName()}" type="text" class="form-control" id="inputEmail3" placeholder="Username" name="empName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input th:value="${emp.getEmail()}" type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Gender</label>
+                    <div class="col-sm-10">
+                        <input th:checked="${emp.getGender()==1}" type="radio" name="gender" value="1">男
+                        <input th:checked="${emp.getGender()==0}" type="radio" name="gender" value="0">女
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDepartment" class="col-sm-2 control-label">Department</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="inputDepartment" name="department.id">
+                            <option th:selected="${dept.getId()==emp.getDepartment().getId()}" th:each="dept:${depts}" th:value="${dept.getId()}">[[ ${dept.getDepName}]]</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Birth</label>
+                    <div class="col-sm-10">
+                        <input th:value="${#dates.format(emp.getBirth(),'yyyy-MM-dd HH:mm')}" type="text" class="form-control" name="birth">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-sm btn-success">提交</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+
+
+<script th:src="@{/dist/js/bootstrap.bundle.min.js}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossorigin="anonymous"></script>
+<script th:src="@{/dist/js/dashboard.js}"></script>
+</body>
+</html>
