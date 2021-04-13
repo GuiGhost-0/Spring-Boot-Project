@@ -409,7 +409,7 @@ public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySourc
 
 #### run方法流程分析
 
-![](images/640.webp)
+![](images/640.png)
 
 
 
